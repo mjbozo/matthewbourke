@@ -1,0 +1,27 @@
+
+* {
+    margin: 0;
+    /* box-sizing: border-box; */
+    /* transition-duration: 200ms; */
+}
+
+nav {
+    padding: 16px;
+    padding-right: 20vw;
+    background-color: #324258;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+    margin: 0 16px;
+}
+
+#body-container {
+    height: 100vh;
+    width: min(1600px, 100vw);
+    padding: 24px;
+}
