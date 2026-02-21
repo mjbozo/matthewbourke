@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>matthew bourke / projects</title>
     <link rel="stylesheet" href="../static/styles.css">
 </head>
 
 <body>
+    <div id="fade-cover"></div>
     <nav>
-        <a href="../">home</a>
-        <a href="../blog">blog</a>
+        <div>
+            <a href="../">matthew bourke</a>
+        </div>
+        <div>
+            <a id="projects-link" class="clickable" href="../projects">projects</a>
+            <a id="blog-link" class="clickable" href="../blog">blog</a>
+        </div>
     </nav>
     <div id="body-container">
         <h1>matthew bourke / projects</h1>
@@ -19,5 +26,10 @@
 </body>
 
 <script>
+    const path = document.location.pathname
+    if (path.match(".*\/projects[\/index\.html]?") !== null) {
+        document.getElementById("projects-link").classList.add("current")
+    }
 </script>
+
 </html>

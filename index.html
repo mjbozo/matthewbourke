@@ -1,28 +1,177 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>matthew bourke</title>
     <link rel="stylesheet" href="static/styles.css">
 </head>
 
 <body>
+    <div id="fade-cover"></div>
     <nav>
         <div>
-            <p>matthew bourke</p>
+            <a class="clickable" href="./">matthew bourke</a>
         </div>
         <div>
-            <a href="projects">projects</a>
-            <a href="blog">blog</a>
+            <a class="clickable" href="projects">projects</a>
+            <a class="clickable" href="blog">blog</a>
         </div>
     </nav>
+    <div id="hero">
+        <div id="alt1"></div>
+        <div id="alt2"></div>
+        <div id="detail-container">
+            <div id="img-wrapper">
+                <img id="pic" src="static/mb.jpg"></img>
+                <img id="pic-glitch" src="static/mb.jpg"></img>
+            </div>
+            <div id="summary">
+                <div id="summary-label">
+                    <span id="prompt">❯</span> <span>whoami</span>
+                    <span id="cursor" />
+                </div>
+                <h1>matthew bourke</h1>
+                <p>software developer / engineer / tinkerer</p>
+                <div id="deets">
+                    <p><span class="deet-label">location:</span>sydney, australia</p>
+                    <p><span class="deet-label">interests:</span>software, electronics, making</p>
+                    <p>
+                        <span class="deet-label">current_project:</span>
+                        <a href="https://github.com/mjbozo/conduit" target=_blank>reverse proxy</a>
+                    </p>
+                </div>
+                <div id="blurb">
+                    <p>hello, my name is matthew, and i'm a software developer who loves to make things with technology.
+                        i studied mechatronics engineering at UNSW and graduated in 2021.
+                        <br />
+                        <br />
+                        i crave continuous learning and i'm always keen to build something challenging with the goal of
+                        gaining experience
+                    </p>
+                </div>
+                <div id="link-container">
+                    <a class="header-link clickable" href="https://github.com/mjbozo" target="_blank">Github</a> /
+                    <a class="header-link clickable" href="https://linkedin.com/in/matthew-bourke"
+                        target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
-        <h1>hi, i'm matthew bourke</h1>
-        <div>
-            <p>and i'm here to fuck shit up</p>
+        <div id="content">
+            <h2>favourite tools</h2>
+            <ul>
+                <li>
+                    <p>for programming i love using <span title="gophers rise up">golang</span></p>
+                </li>
+                <li>
+                    <p>and i use neovim btw</p>
+                </li>
+                <li>
+                    <p>linux user</p>
+                </li>
+                <li>
+                    <p>ender 3 v2 3d printer</p>
+                </li>
+                <li>
+                    <p>sony xm5 headphones for locking in</p>
+                </li>
+                <li>
+                    <p>iphone / apple watch / airpods for daily use</p>
+                </li>
+                <li>
+                    <p>coffee in my veins</p>
+                </li>
+            </ul>
+
+            <div id="skills-container">
+                <h2>skills + experience</h2>
+                <ul>
+                    <li>
+                        <h3>programming</h3>
+                        <p>go, rust, java, kotlin, javascript, python, c, c++, sql</p>
+                    </li>
+                    <li>
+                        <h3>tools + technologies</h3>
+                        <p>git, neovim, postgresql, postman, react, svelte, linux, guidewire</p>
+                    </li>
+                    <li>
+                        <h3>experience</h3>
+                        <p>guidewire claimcenter developer at iag</p>
+                        <p>advent of code completionist</p>
+                        <p>graduate developer at fdm</p>
+                    </li>
+                    <li>
+                        <h3>education</h3>
+                        <p>bachelor of mechatronics engineering (honours)</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects-wrapper">
+        <div id="featured-projects">
+            <div class="card-wrapper">
+                <div class="project-card">
+                    <h3>conduit reverse proxy</h3>
+                    <p>conduit is a reverse proxy written in golang with minimal dependencies. it supports key features
+                        such as host-based routing, load balancing, middleware plugins, websocket support, security
+                        features, and YAML file-driven config</p>
+                    <a href="https://github.com/mjbozo/conduit" target=_blank><span>❯</span>source code</a>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="project-card">
+                    <h3>suede websockets</h3>
+                    <p>implementation of websocket protocol from scratch based on rfc6455. written in golang with no
+                        dependencies, achieves basic websocket upgrade and bidirectional communcation</p>
+                    <a href="https://github.com/mjbozo/suede" target=_blank><span>❯</span>source code</a>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="project-card">
+                    <h3>card title</h3>
+                    <p>lorem ipsum</p>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="project-card">
+                    <h3>card title</h3>
+                    <p>lorem ipsum</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 
 <script>
+    const cards = document.getElementsByClassName("project-card")
+
+    for (let card of cards) {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * 5;
+            const rotateY = ((x - centerX) / centerX) * -5;
+
+            card.style.transform = `
+                scale(1.05)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+              `;
+        })
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        });
+    }
 </script>
+
 </html>
