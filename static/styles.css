@@ -444,7 +444,6 @@ nav a {
     border-radius: 8px;
     margin: 32px 0;
     padding: 64px 48px;
-    cursor: pointer;
     color: whitesmoke;
     transform-style: preserve-3d;
     will-change: transform;
@@ -461,6 +460,7 @@ nav a {
     display: inline-block;
     margin-top: 16px;
     padding: 8px;
+    cursor: pointer;
 
     span {
         padding-right: 8px;
